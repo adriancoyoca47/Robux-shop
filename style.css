@@ -1,0 +1,20 @@
+body { font-family: 'Inter', sans-serif; background-color: #f0f2f5; margin: 0; color: #333; }
+header { background: #0070ba; color: white; padding: 40px 20px; text-align: center; }
+.grid { display: flex; justify-content: center; gap: 20px; padding: 40px; flex-wrap: wrap; }
+.card { background: white; border-radius: 12px; padding: 20px; width: 200px; text-align: center; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.card:hover { transform: scale(1.05); border: 2px solid #0070ba; }
+.price { font-size: 1.5rem; color: #28a745; font-weight: bold; }
+.select-btn { background: #0070ba; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+
+.form-container { max-width: 500px; margin: 0 auto 50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+label { display: block; text-align: left; margin-top: 15px; font-weight: bold; }
+input, select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 8px; }
+
+.payment-box { background: #f9f9f9; padding: 15px; border-radius: 10px; margin: 20px 0; border: 1px dashed #bbb; }
+.qr-buttons { display: flex; gap: 10px; margin-bottom: 15px; }
+.pay-btn { flex: 1; padding: 10px; cursor: pointer; border: 1px solid #0070ba; border-radius: 5px; background: white; color: #0070ba; font-weight: bold; }
+.pay-btn:hover { background: #0070ba; color: white; }
+
+.qr-display img { width: 100%; max-width: 250px; margin-top: 10px; border-radius: 10px; }
+.submit-btn { width: 100%; background: #28a745; color: white; padding: 15px; border: none; border-radius: 8px; font-size: 1.2rem; cursor: pointer; margin-top: 20px; }
+.submit-btn:hover { background: #218838; }
