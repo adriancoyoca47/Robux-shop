@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux Top-Up | Instant Delivery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>💎 Robux Top-Up Shop</h1>
+        <p>Reliable. Fast. Secure.</p>
+    </header>
+
+    <main>
+        <section class="grid">
+            <div class="card" onclick="selectPack('400 Robux', '₱250')">
+                <h3>400 Robux</h3>
+                <p class="price">₱250.00</p>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="card" onclick="selectPack('800 Robux', '₱480')">
+                <h3>800 Robux</h3>
+                <p class="price">₱480.00</p>
+                <button class="select-btn">Select</button>
+            </div>
+            <div class="card" onclick="selectPack('1700 Robux', '₱950')">
+                <h3>1700 Robux</h3>
+                <p class="price">₱950.00</p>
+                <button class="select-btn">Select</button>
+            </div>
+        </section>
+
+        <section id="checkout" class="form-container">
+            <h2>Order Details</h2>
+            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+                
+                <label>Roblox Username</label>
+                <input type="text" name="Username" placeholder="Enter Username" required>
+
+                <label>Selected Package</label>
+                <input type="text" id="selected-pack" name="Package" readonly placeholder="Click a package above">
+
+                <div class="payment-box">
+                    <p><strong>Step 1: Pay using GCash or PayPal</strong></p>
+                    <div class="qr-buttons">
+                        <button type="button" class="pay-btn" onclick="toggleQR('gcash')">Show GCash QR</button>
+                        <button type="button" class="pay-btn" onclick="toggleQR('paypal')">Show PayPal QR</button>
+                    </div>
+
+                    <div id="gcash-qr" class="qr-display" style="display:none;">
+                        <img src="gcash-qr.jpg" alt="GCash QR">
+                        <p>Pay to: <strong>AD***N C.</strong></p>
+                    </div>
+
+                    <div id="paypal-qr" class="qr-display" style="display:none;">
+                        <img src="paypal-qr.jpg" alt="PayPal QR">
+                        <p>Pay to: <strong>Adrian Coyoca</strong></p>
+                    </div>
+                </div>
+
+                <label>Step 2: Reference Number</label>
+                <input type="text" name="Ref_Number" placeholder="Paste Transaction ID here" required>
+
+                <button type="submit" class="submit-btn">Submit Order</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function selectPack(name, price) {
+            document.getElementById('selected-pack').value = name + " - " + price;
+            document.getElementById('checkout').scrollIntoView({behavior: 'smooth'});
+        }
+
+        function toggleQR(method) {
+            const gcash = document.getElementById('gcash-qr');
+            const paypal = document.getElementById('paypal-qr');
+            if (method === 'gcash') {
+                gcash.style.display = 'block';
+                paypal.style.display = 'none';
+            } else {
+                paypal.style.display = 'block';
+                gcash.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
