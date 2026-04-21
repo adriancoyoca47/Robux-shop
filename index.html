@@ -3,65 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robux Top-Up | Instant Delivery</title>
+    <title>Robux Top-Up | Gaming Inspired</title>
+    
     <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>💎 Robux Top-Up Shop</h1>
-        <p>Reliable. Fast. Secure.</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Gaming, <br><span class="highlight">inspired.</span></h1>
+            <p>Robux top-up plans that help you thrive—so you can live your game today while preparing for your next big win.</p>
+            <button class="hero-btn" onclick="scrollToShop()">See individual plans</button>
+        </div>
     </header>
 
-    <main>
-        <section class="grid">
-            <div class="card" onclick="selectPack('400 Robux', '₱250')">
-                <h3>400 Robux</h3>
-                <p class="price">₱250.00</p>
-                <button class="select-btn">Select</button>
+    <main id="shop">
+        <p class="section-tag">Our products</p>
+        <h2 class="section-title">Well-being starts here</h2>
+
+        <section class="card-grid">
+            <div class="product-card" onclick="selectPack('400 Robux', '$4.99')">
+                <div>
+                    <h3>400 Robux</h3>
+                    <p>Standard protection for your daily gaming needs.</p>
+                </div>
+                <div>
+                    <span class="price">$4.99</span>
+                    <span class="arrow">→</span>
+                </div>
             </div>
-            <div class="card" onclick="selectPack('800 Robux', '₱480')">
-                <h3>800 Robux</h3>
-                <p class="price">₱480.00</p>
-                <button class="select-btn">Select</button>
+
+            <div class="product-card" onclick="selectPack('800 Robux', '$9.99')">
+                <div>
+                    <h3>800 Robux</h3>
+                    <p>Comprehensive coverage for premium items and skins.</p>
+                </div>
+                <div>
+                    <span class="price">$9.99</span>
+                    <span class="arrow">→</span>
+                </div>
             </div>
-            <div class="card" onclick="selectPack('1700 Robux', '₱950')">
-                <h3>1700 Robux</h3>
-                <p class="price">₱950.00</p>
-                <button class="select-btn">Select</button>
+
+            <div class="product-card" onclick="selectPack('1700 Robux', '$19.99')">
+                <div>
+                    <h3>1700 Robux</h3>
+                    <p>Maximize your potential with high-volume top-ups.</p>
+                </div>
+                <div>
+                    <span class="price">$19.99</span>
+                    <span class="arrow">→</span>
+                </div>
             </div>
         </section>
 
         <section id="checkout" class="form-container">
-            <h2>Order Details</h2>
-            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+            <h2>Complete your request</h2>
+            <form action="https://formspree.io/f/xnjlbbvq" method="POST">
                 
                 <label>Roblox Username</label>
-                <input type="text" name="Username" placeholder="Enter Username" required>
+                <input type="text" name="Username" placeholder="e.g. Builderman" required>
 
-                <label>Selected Package</label>
-                <input type="text" id="selected-pack" name="Package" readonly placeholder="Click a package above">
+                <label>Selected Plan</label>
+                <input type="text" id="selected-pack" name="Package" readonly placeholder="Click a plan above">
 
-                <div class="payment-box">
-                    <p><strong>Step 1: Pay using GCash or PayPal</strong></p>
-                    <div class="qr-buttons">
-                        <button type="button" class="pay-btn" onclick="toggleQR('gcash')">Show GCash QR</button>
-                        <button type="button" class="pay-btn" onclick="toggleQR('paypal')">Show PayPal QR</button>
-                    </div>
-
-                    <div id="gcash-qr" class="qr-display" style="display:none;">
-                        <img src="gcash-qr.jpg" alt="GCash QR">
-                        <p>Pay to: <strong>AD***N C.</strong></p>
-                    </div>
-
-                    <div id="paypal-qr" class="qr-display" style="display:none;">
-                        <img src="paypal-qr.jpg" alt="PayPal QR">
-                        <p>Pay to: <strong>Adrian Coyoca</strong></p>
-                    </div>
+                <div class="qr-section">
+                    <p><strong>Pay via GCash or PayPal</strong></p>
+                    <img src="gcash-qr.jpg" alt="GCash QR" class="qr-img">
+                    <p style="font-size: 0.8rem; color: #5e6c75;">Scan QR and enter the Reference Number below</p>
                 </div>
 
-                <label>Step 2: Reference Number</label>
-                <input type="text" name="Ref_Number" placeholder="Paste Transaction ID here" required>
+                <label>Reference Number</label>
+                <input type="text" name="Ref_Num" placeholder="Enter transaction ID" required>
 
                 <button type="submit" class="submit-btn">Submit Order</button>
             </form>
@@ -70,20 +84,11 @@
 
     <script>
         function selectPack(name, price) {
-            document.getElementById('selected-pack').value = name + " - " + price;
+            document.getElementById('selected-pack').value = name + " (" + price + ")";
             document.getElementById('checkout').scrollIntoView({behavior: 'smooth'});
         }
-
-        function toggleQR(method) {
-            const gcash = document.getElementById('gcash-qr');
-            const paypal = document.getElementById('paypal-qr');
-            if (method === 'gcash') {
-                gcash.style.display = 'block';
-                paypal.style.display = 'none';
-            } else {
-                paypal.style.display = 'block';
-                gcash.style.display = 'none';
-            }
+        function scrollToShop() {
+            document.getElementById('shop').scrollIntoView({behavior: 'smooth'});
         }
     </script>
 </body>
